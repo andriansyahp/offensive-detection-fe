@@ -84,70 +84,68 @@ function App() {
   }
 
   return (
-      <React.Fragment>
-        <ThemeProvider theme={theme}>
-          <CssBaseline/>
-          <Container maxWidth="xl" align="center" style = {{ backgroundColor: '#1C093A', color: 'white' }}>
-            <div className="App">
-              <div className="content">
-                <Typography variant="h3" component="h2" gutterBottom>
-                  <span style={{backgroundColor: "#257A2A", color: 'white'}}>Neutral</span> vs <span style={{backgroundColor: "#9D5116", color: 'white'}}>Offensive</span> vs <span style={{backgroundColor: "#7C0032", color: 'white'}}>Hate Speech</span>  Text Detection
-                </Typography>
-                <Typography variant="subtitle1" gutterBottom>
-                  Insert message to classify!
-                </Typography>
-                <form className={classes.root} noValidate autoComplete="off" onSubmit={(e) => handleSubmit(e)}>
-                  <TextField
-                      id="outlined-secondary"
-                      label="Message"
-                      variant="outlined"
-                      placeholder="Example: 'Hi!'"
-                      fullWidth
-                      margin="normal"
-                      InputLabelProps={{
-                        shrink: true,
-                      }}
-                      value={text}
-                      onChange={(e) => handleChange(e)}
-                      InputProps={{
-                        style: {
-                          color: "white"
-                        }
-                      }}
-                  />
-                  <ColorButton variant="contained" color="primary" className={classes.margin} disabled={text.length === 0}>
-                    Classify
-                  </ColorButton>
-                </form>
-                {
-                  !done ?
-                      <LinearProgress color="secondary" />
-                      :
-                      category ?
-                          <Card className={classes.root} variant="outlined"
-                                style={{backgroundColor: '#32004F', color: 'white'}} width='md'>
-                            <CardContent>
-                              <Typography className={classes.title} gutterBottom>
-                                Message
-                              </Typography>
-                              <Typography variant="h5" component="h2">
-                                {finalMsg}
-                              </Typography>
-                              <Chip label={category} variant="outlined"
-                                    style={{backgroundColor: color, color: 'white'}}/>
-                              <Typography variant="body2" component="p">
-                                {verdict}
-                              </Typography>
-                            </CardContent>
-                          </Card>
-                          :
-                          null
-                }
-              </div>
+      <ThemeProvider theme={theme}>
+        <CssBaseline/>
+        <Container maxWidth="xl" align="center" style = {{ backgroundColor: '#1C093A', color: 'white' }}>
+          <div className="App">
+            <div className="content">
+              <Typography variant="h3" component="h2" gutterBottom>
+                <span style={{backgroundColor: "#257A2A", color: 'white'}}>Neutral</span> vs <span style={{backgroundColor: "#9D5116", color: 'white'}}>Offensive</span> vs <span style={{backgroundColor: "#7C0032", color: 'white'}}>Hate Speech</span>  Text Detection
+              </Typography>
+              <Typography variant="subtitle1" gutterBottom>
+                Insert message to classify!
+              </Typography>
+              <form className={classes.root} noValidate autoComplete="off" onSubmit={(e) => handleSubmit(e)}>
+                <TextField
+                    id="outlined-secondary"
+                    label="Message"
+                    variant="outlined"
+                    placeholder="Example: 'Hi!'"
+                    fullWidth
+                    margin="normal"
+                    InputLabelProps={{
+                      shrink: true,
+                    }}
+                    value={text}
+                    onChange={(e) => handleChange(e)}
+                    InputProps={{
+                      style: {
+                        color: "white"
+                      }
+                    }}
+                />
+                <ColorButton variant="contained" color="primary" className={classes.margin} disabled={text.length === 0}>
+                  Classify
+                </ColorButton>
+              </form>
+              {
+                !done ?
+                    <LinearProgress color="secondary" />
+                    :
+                    category ?
+                        <Card className={classes.root} variant="outlined"
+                              style={{backgroundColor: '#32004F', color: 'white'}} width='md'>
+                          <CardContent>
+                            <Typography className={classes.title} gutterBottom>
+                              Message
+                            </Typography>
+                            <Typography variant="h5" component="h2">
+                              {finalMsg}
+                            </Typography>
+                            <Chip label={category} variant="outlined"
+                                  style={{backgroundColor: color, color: 'white'}}/>
+                            <Typography variant="body2" component="p">
+                              {verdict}
+                            </Typography>
+                          </CardContent>
+                        </Card>
+                        :
+                        null
+              }
             </div>
-          </Container>
-        </ThemeProvider>
-      </React.Fragment>
+          </div>
+        </Container>
+      </ThemeProvider>
   );
 }
 
