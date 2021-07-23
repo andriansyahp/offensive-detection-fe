@@ -47,10 +47,12 @@ function App() {
       <div className="content">
         <p className="title">Hate Speech vs Offensive vs Neutral Text Detection</p>
         <p>Insert message to classify!</p>
-        <input value={text} type="text" onChange={(e) => handleChange(e)} />
-        <button onClick={(e) => handleSubmit(e)} disabled={text.length === 0}>
-          Classify
-        </button>
+        <form onSubmit={(e) => handleSubmit(e)}>
+          <input autoFocus value={text} type="text" onChange={(e) => handleChange(e)} />
+          <button disabled={text.length === 0}>
+            Classify
+          </button>
+        </form>
       <p>{output}</p>
       </div>
     </div>
