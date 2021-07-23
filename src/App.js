@@ -90,7 +90,7 @@ function App() {
           <div className="App">
             <div className="content">
               <Typography variant="h3" component="h2" gutterBottom>
-                <span style={{backgroundColor: "#257A2A", color: 'white'}}>Neutral</span> vs <span style={{backgroundColor: "#9D5116", color: 'white'}}>Offensive</span> vs <span style={{backgroundColor: "#7C0032", color: 'white'}}>Hate Speech</span>  Text Detection
+                <span style={{backgroundColor: "#257A2A", color: 'white'}}>Neutral</span> vs <span style={{backgroundColor: "#9D5116", color: 'white'}}>Offensive</span> vs <span style={{backgroundColor: "#7C0032", color: 'white'}}>Hate Speech</span> (<span style={{backgroundColor: "#257A2A", color: 'white'}}>N</span><span style={{backgroundColor: "#9D5116", color: 'white'}}>O</span><span style={{backgroundColor: "#7C0032", color: 'white'}}>HS</span>) Text Detection
               </Typography>
               <Typography variant="subtitle1" gutterBottom>
                 Insert message to classify!
@@ -114,7 +114,7 @@ function App() {
                       }
                     }}
                 />
-                <ColorButton variant="contained" color="primary" className={classes.margin} disabled={text.length === 0}>
+                <ColorButton variant="contained" color="primary" className={classes.margin} disabled={text.length === 0} onClick={(e) => handleSubmit(e)}>
                   Classify
                 </ColorButton>
               </form>
